@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Live</title>
+    <link href="./css/all.css" rel="stylesheet">
+    <link href="./css/menuAnimation.css" rel="stylesheet">
+    <script src="./js/statusDB.js"></script>
+    <script src="./js/ParseStatus.js"></script>
+    <script src="./js/mail.js"></script>
+    <script src="./js/sendEmailSettings.js"></script>
+    <script src="./js/TestMail.js"></script>
+
+</head>
+<body onload="Status()">
+<div align="center">
+<div class="status" align="center">
+    <table class="animateTable" align="center">
+        <tr>
+            <td class="h" height="26"> Статус репликации: </td>
+            <td class="h" id="status"> Failed </td>
+        </tr>
+        <tr>
+            <td align="right"> Slave IO Running: </td>
+            <td align="left" id="SlaveIORunning"></td>
+        </tr>
+        <tr>
+            <td align="right"> Slave SQL Running: </td>
+            <td align="left" id="SlaveSQLRunning"></td>
+        </tr>
+        <tr>
+            <td align="right"> Seconds Behind Master: </td>
+            <td align="left" id="SecondsBehindMaster"></td>
+        </tr>
+        <tr>
+            <td align="right"> Gtid IO Pos: </td>
+            <td align="left" id="GtidIOPos"></td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="mail">
+    <table class="animateTable" align="center">
+        <tr>
+            <td colspan="2" class="h"> Текущие настройки почты: </td>
+        </tr>
+        <tr>
+            <td align="right" width="100"> отправитель: </td>
+            <td align="left"  width="200" id="viewFrom"></td>
+        </tr>
+        <tr>
+            <td align="right"> получатель: </td>
+            <td align="left" id="viewTo"></td>
+        </tr>
+        <tr>
+            <td align="right"> результат: </td>
+            <td align="left" class="Failed" id="testMail"> Failed </td>
+        </tr>
+        <tr>
+            <td align="center"> <input type="submit" class="button" onclick="TestMail()" value="Проверить"> </td>
+            <td align="center"> <input type="submit" class="button" onclick="MailWindow()" value="Насройка почты"> </td>
+        </tr>
+    </table>
+</div>
+
+<div id="error"></div>
+
+<div>
+    <form id="mailSettings" method="POST" onsubmit="return false;">
+    </form>
+</div>
+
+</div>
+</body>
+</html>
